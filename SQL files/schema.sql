@@ -31,7 +31,9 @@ create table Customers (
   email       text,
   home        text,
   card_info   ?);
-  
+
+
+
 create table Employees (
   eid         char(20) primary key,
   name        char(30),
@@ -42,21 +44,18 @@ create table Employees (
   depart_date date);
 
 create table Part_time_Emp (
-  eid         char(20) primary key 
-  hourly_rate numeric,
-  
-  foreign key (eid) references Employees on delete cascade);
+  eid char(20) primary key references Employees
+      on delete cascade,
+  hourly_rate numeric);
 
 create table Full_time_Emp (
-  eid            char(20) primary key 
-  monthly_salary numeric,
-
-  foreign key (eid) references Employees on delete cascade);
+  eid char(20) primary key references Employees
+      on delete cascade,
+  monthly_salary numeric);
 
 create table Instructors (
-  eid char(20) primary key  
-  
-  foreign key (eid) references Employees on delete cascade);
+  eid char(20) primary key references Employees
+      on delete cascade);
 
 create table Part_time_instructors (
   eid char(20) primary key references Part_time_Emp
