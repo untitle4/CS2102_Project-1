@@ -15,7 +15,7 @@ create table Offerings (
   end_date          date,
   status            text);
   
-create table CoursePakages (
+create table CoursePackages (
   pid         char(20) primary key,
   price       float,
   number      integer,
@@ -74,3 +74,14 @@ create table Administrators (
 create table Managers (
   eid char(20) primary key references Full_time_Emp
       on delete cascade);
+
+create table Rooms (
+  rid 			char(20) primary key,
+  location		text,
+  seating_capacity	integer);
+
+create table Sessions (
+  sid 		char(20),
+  date 		text,
+  start_time	text,
+  end_time	text);
